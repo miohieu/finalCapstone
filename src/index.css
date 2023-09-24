@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.flex-container {
+    @apply md:flex flex-none
+}
+
+
+.auth-layout__content {
+    @apply  h-full lg:container	
+}
