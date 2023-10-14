@@ -14,3 +14,5 @@ height: 100vh;
 margin: auto;
 
 ` 
+
+export * from './Button'
