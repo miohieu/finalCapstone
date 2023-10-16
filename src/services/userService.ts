@@ -9,7 +9,7 @@ const apiI = api({
 
 export const userService = {
     login: (data: LoginType) => apiI.post<ApiResponse<LoginType>>('/Users/signin', data),
-
+        register: (data) => apiI.post<ApiResponse<T>>('User/signup', data)
 }
 
 
