@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { getAccessToken } from 'utils'
-import { loginThunk } from '.'
+import { loginThunk, registerThunk } from '.'
 import { User } from 'types'
 type userAuth = {
     accessToken?: string
@@ -30,6 +30,9 @@ const userAuthSlice = createSlice({
                     state.user = payload
                 }
                 
+            })
+            .addCase(registerThunk.fulfilled, (_, {payload}) => {
+                console.log(payload)
             })
 
     },

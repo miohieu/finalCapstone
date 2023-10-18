@@ -4,8 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { RegisterSchema, RegisterType } from "schema/RegisterSchema"
 import { useForm, SubmitHandler } from "react-hook-form"
 import { Button } from "components"
-import { loginThunk } from "store/Authentication"
 import { useAppDispatch } from "store"
+import { registerThunk } from "store/Authentication"
 
 export const RegisterTemplate = () => {
     const {
@@ -21,6 +21,7 @@ export const RegisterTemplate = () => {
 
     const onSubmit: SubmitHandler<RegisterType> = (data) => {
         console.log("hello", data)
+        dispatch(registerThunk(data))
     }
 
     return (
@@ -47,21 +48,21 @@ export const RegisterTemplate = () => {
                         />
                     </div>
                     <div>
+                        <div>
+                            <label htmlFor="name">Ho va Ten</label>
+                            <SInput register={register}
+                                name="name"
+                                error={errors.name?.message}
+                                type="text"
+                                placeholder="Nhap ten"
+                            />
+                        </div>
                         <label htmlFor="password">So dien thoai</label>
                         <SInput register={register}
                             name="phoneNumber"
                             error={errors.phoneNumber?.message}
                             type="text"
                             placeholder="Nhap so dien thoai"
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="name">Ho va Ten</label>
-                        <SInput register={register}
-                            name="name"
-                            error={errors.name?.message}
-                            type="text"
-                            placeholder="Nhap ten"
                         />
                     </div>
                     <div>

@@ -3,8 +3,8 @@ import styled from "@emotion/styled"
 const Buttons = ({ text, handleClick }) => {
     return (
         <div>
-            <button className="button-signup" onClick={() => handleClick()}>
-                <p></p>{text}
+            <button className="button btn btn-warning p-3" onClick={() => handleClick()}>
+                    {text}
             </button>
         </div>
     )
@@ -13,7 +13,7 @@ const Buttons = ({ text, handleClick }) => {
 
 
 export const Button = styled(Buttons)`
-.button-signup {
+.button {
     background-color: red;
     color: yellow,
     border: 1px solid black

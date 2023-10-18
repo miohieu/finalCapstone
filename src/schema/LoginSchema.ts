@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { User } from 'types'
 export const LoginSchema = z.object({
     email: z.string().email({ message: 'Email khong hop le' }),
     passWord: z.string().min(1, { message: 'Vui long nhap mat khau' }),
@@ -11,6 +12,7 @@ export const RegisterSchema = z.object({
   phoneNumber: z.string().regex(/\d{10,}/) 
 })
 
+export type LoginType = z.infer<typeof LoginSchema> & User
 export type RegisterType = z.infer<typeof RegisterSchema>  
 
 

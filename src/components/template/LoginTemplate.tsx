@@ -20,7 +20,6 @@ export const LoginTemplate = () => {
 
     const onSubmit: SubmitHandler<LoginType> = (data) => {
         dispatch(loginThunk(data))
-        console.log("hello", data)
     }
 
     return (
