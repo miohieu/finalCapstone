@@ -1,5 +1,5 @@
 import { api } from 'constant'
-import { LoginType } from 'schema/LoginSchema'
+import { LoginType, RegisterType } from 'schema/LoginSchema'
 import { url } from 'constant'
 import { ApiResponse } from 'types'
 
@@ -9,7 +9,7 @@ const apiI = api({
 
 export const userService = {
     login: (data: LoginType) => apiI.post<ApiResponse<LoginType>>('/Users/signin', data),
-
+    register: (data: RegisterType) => apiI.post<ApiResponse<RegisterType>>('Users/signup', data)
 }
 
 

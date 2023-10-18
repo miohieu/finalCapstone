@@ -5,3 +5,11 @@ export type ApiResponse<T> = {
     dateTime: string
 
 }
+export type User = {
+    id: number
+    accessToken: string
+    avatar: string,
+    email: string
+    name: string
+    phoneNumber: string
+}
