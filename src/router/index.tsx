@@ -1,9 +1,13 @@
 import { RouteObject } from "react-router-dom";
 import { PATH } from "constant";
-import { Login , Register} from "pages";
+import { Projectmn,Login , Register} from "pages";
 import { AuthLayout } from "components";
 
 export const router: RouteObject[] = [
+    {
+        path:PATH.projectmn,
+        element:<Projectmn />
+    },
     {
         element: <AuthLayout/>,
         children: [{
@@ -13,6 +17,6 @@ export const router: RouteObject[] = [
         {
             path: PATH.register,
             element: <Register/>
-        }]
+        },]
     }
 ]
