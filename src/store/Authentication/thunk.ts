@@ -1,13 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { userService } from 'services'
+import { projectService, userService } from 'services'
 import { getAccessToken, sleep } from 'utils'
 import { User } from 'types'
 import { RegisterType } from 'schema/RegisterSchema'
+import { ProjectType } from 'schema/ProjectSchema'
 
 export const loginThunk = createAsyncThunk(
     'userService/login',
-    async (payload: User, { rejectWithValue }) => {
-        try {
+    async (payload: User, { rejectWithValue }) => { try {
             const data = await userService.login(payload)
             await sleep(2000)
 
@@ -33,8 +33,9 @@ export const registerThunk = createAsyncThunk(
     }
 )
 
+
 export const getUserByAccessTokenThunk = createAsyncThunk(
-    'quanLyNguoiDung/getUserByAccesToken',
+    'quanLyNguoiDung/getUserByAccessToken',
     async (_, { rejectWithValue }) => {
         try {
             // Lấy token dưới localStorage

@@ -1,7 +1,7 @@
 import { RouteObject } from "react-router-dom";
 import { PATH } from "constant";
-import { Projectmn,Login , Register} from "pages";
-import { AuthLayout } from "components";
+import { Projectmn,Login,CreateProject , Register} from "pages";
+import { AuthLayout,MainLayout } from "components";
 
 export const router: RouteObject[] = [
     {
@@ -12,11 +12,30 @@ export const router: RouteObject[] = [
         element: <AuthLayout/>,
         children: [{
             path: PATH.login,
-            element: <Login/>
+            element: <Login />
         },
         {
             path: PATH.register,
-            element: <Register/>
-        },]
+            element: <Register />
+        }]
+
+    },
+    {
+        element: <MainLayout />,
+        children: [
+            {
+                path: PATH.createProject,
+                element: <CreateProject />
+            },
+            {
+                path: PATH.projectDetail,
+            },
+            {
+                index: true,
+                path: PATH.home
+            }
+        ]
     }
+
+
 ]

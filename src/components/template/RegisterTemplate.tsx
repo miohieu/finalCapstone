@@ -27,7 +27,7 @@ export const RegisterTemplate = () => {
     return (
         <Wrapper>
             <div className="form__signup">
-                <h1>Dang nhap</h1>
+                <h1>Dang ky</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div>
                         <label htmlFor="email">Email</label>
@@ -68,7 +68,7 @@ export const RegisterTemplate = () => {
                     <div>
                     </div>
                     <Button handleClick={() => { trigger() }}
-                        text="Dang nhap" />
+                        text="Dang ky" />
                 </form>
             </div>
         </Wrapper>
