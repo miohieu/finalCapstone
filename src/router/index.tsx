@@ -1,15 +1,11 @@
 import { RouteObject } from "react-router-dom";
 import { PATH } from "constant";
-import { Projectmn,Login,CreateProject , Register} from "pages";
-import { AuthLayout,MainLayout } from "components";
+import { Projectmn, Login, CreateProject, Register } from "pages";
+import { AuthLayout, MainLayout } from "components";
 
 export const router: RouteObject[] = [
     {
-        path:PATH.projectmn,
-        element:<Projectmn />
-    },
-    {
-        element: <AuthLayout/>,
+        element: <AuthLayout />,
         children: [{
             path: PATH.login,
             element: <Login />
@@ -23,6 +19,12 @@ export const router: RouteObject[] = [
     {
         element: <MainLayout />,
         children: [
+
+            {
+                index: true,
+                path: PATH.projectmn,
+                element: <Projectmn />
+            },
             {
                 path: PATH.createProject,
                 element: <CreateProject />
