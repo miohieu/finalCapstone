@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import { User } from 'types'
+
 export const LoginSchema = z.object({
     email: z.string().email({ message: 'Email khong hop le' }),
     passWord: z.string().min(1, { message: 'Vui long nhap mat khau' }),

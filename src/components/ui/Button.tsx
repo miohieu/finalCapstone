@@ -1,6 +1,10 @@
 import styled from "@emotion/styled"
 
-const Buttons = ({ text, handleClick }) => {
+type ButtonProps = {
+text: string
+handleClick?:()=>void
+}
+const Buttons = ({ text, handleClick }:ButtonProps) => {
     return (
         <div>
             <button className="button btn btn-warning p-3" onClick={() => handleClick()}>
