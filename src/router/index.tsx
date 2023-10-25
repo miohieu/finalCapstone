@@ -32,10 +32,6 @@ export const router: RouteObject[] = [
             {
                 path: PATH.projectDetail,
             },
-            {
-                index: true,
-                path: PATH.home
-            }
         ]
     }
 
