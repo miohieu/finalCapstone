@@ -14,3 +14,13 @@ export type User = {
     phoneNumber: string
 }
 
+export type ProjectDeatailType = {
+    alias: string
+    categoryId: number
+    creator: number
+    deleted: boolean
+    description: string
+    id: number
+    projectName: string
+}
+

@@ -7,7 +7,7 @@ export const createProjectThunk = createAsyncThunk (
     async (payload: ProjectType, {rejectWithValue}) => {
         try {
             const data = await projectService.createProject(payload)
-            return data
+            return data.data
             
         } catch (err) {
             return rejectWithValue(err)
