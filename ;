@@ -10,8 +10,8 @@ export const api = (config?: CreateAxiosDefaults) => {
         return {
             ...config,
             headers: { 
+                // Authorization: `Bearer + ${getAccessToken}` || "",
                 TokenCybersoft,
-                Authorization: "Bearer " + getAccessToken() || ""
             } as unknown as AxiosRequestHeaders,
         }
     })

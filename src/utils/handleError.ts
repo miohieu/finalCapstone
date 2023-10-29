@@ -9,8 +9,8 @@ import { toast } from 'react-toastify'
  */
 
 export const handleError = (error?: Error, message?: string) => {
-    if (isAxiosError<{ content: string }>(error)) {
-        toast.error(message || error?.response?.data.content)
+    if (isAxiosError<{ message: string }>(error)) {
+        toast.error( message || error?.response?.data.message)
     }
 }
 

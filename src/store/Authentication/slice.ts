@@ -2,29 +2,31 @@ import { createSlice } from '@reduxjs/toolkit'
 import { getAccessToken } from 'utils'
 import { loginThunk, registerThunk } from '.'
 import { User } from 'types'
+
 type userAuth = {
     accessToken?: string
-    user?: User,
+    user: User,
     isLogin: boolean
 }
 
 const initialState: userAuth = {
     accessToken: getAccessToken(),
+    user: undefined,
     isLogin: false
 }
 
 const userAuthSlice = createSlice({
     name: 'usersAuth',
     initialState,
-    reducers: {
-    },
+    reducers: { },
     extraReducers(builder) {
         builder
             .addCase(loginThunk.fulfilled, (state, { payload }) => {
                 console.log('payload: ', payload)
+                //
                 // lưu accessToken xuống localstorage
                 localStorage.setItem('ACCESSTOKEN', payload.accessToken)
-                const token = state.accessToken = payload.accessToken
+                const token = state.accessToken  
                 if (token) { 
                     state.isLogin = true 
                     state.user = payload

@@ -10,5 +10,6 @@ const apiI = api({
 
 export const projectService = {
     createProject: ( data: ProjectType) => apiI.post<ApiResponse<ProjectDeatailType>>('Project/createProject', data),
-    getProjectCategory: () => apiI.get('/ProjectCategory')
+    getProjectCategory: () => apiI.get('/ProjectCategory'),
+    getProjectDetail: (id) => apiI.get(`Project/getProjectDetail?id=${id}`)
 }

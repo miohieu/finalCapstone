@@ -5,8 +5,10 @@ import { useSelector } from "react-redux"
 export const ProjectmnTemplate = () => {
     const dispatch = useAppDispatch()
     const { userList, isFetchingUserList } = useSelector((state: RootState) => state.getdanhsach)
-    console.log(isFetchingUserList)
-    console.log(userList)
+
+const user = useSelector(state => state.user)
+
+console.log(user)
 
     useEffect(() => {
         dispatch(getDanhSachThunk())
