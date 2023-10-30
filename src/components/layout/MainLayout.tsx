@@ -7,7 +7,7 @@ export const MainLayout = () => {
             <div className="w-[300px] flex-none">
                 <div className="flex flex-col">
                     <div className="w-full py-[15px] px-[25px] h-[70px] flex justify-center items-center">
-                        <img src="/public/logo.png" alt="logo" className="w-full h-[70px] object-cover" />
+                        <img src="/logo.png" alt="logo" className="w-full h-[70px] object-cover" />
                     </div>
                     <div className="flex flex-col mt-5">
                         <NavLink to={'/dashboard'} className='py-2 px-[35px] items-center'>
