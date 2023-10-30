@@ -19,7 +19,6 @@ export const getProjectDetail = createAsyncThunk(
     'project/projectDetail',
     async(payload, {rejectWithValue}) => {
     try {
-        console.log(payload)
         const data = await projectService.getProjectDetail(payload)
         return data.data.content
     } catch (err) {
@@ -27,5 +26,17 @@ export const getProjectDetail = createAsyncThunk(
     }
 })
 
+export const assignUser = createAsyncThunk(
+    'project/assignUser',
+    async (payload, {rejectWithValue}) => {
+        try {
 
+            const data = await projectService.assignUser(payload)
+            return data.data.content
+        } catch (err) {
+            return rejectWithValue(err)
+        }
+    }
+
+)
 

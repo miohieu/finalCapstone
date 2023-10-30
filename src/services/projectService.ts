@@ -9,9 +9,11 @@ const apiI = api({
 })
 
 export const projectService = {
-    createProject: ( 
-                    data: ProjectType) => apiI
-                    .post<ApiResponse<ProjectDeatailType>>('Project/createProjectAuthorize', data),
+    createProject: (
+        data: ProjectType) => apiI
+            .post<ApiResponse<ProjectDeatailType>>('Project/createProjectAuthorize', data),
     getProjectCategory: () => apiI.get('/ProjectCategory'),
-    getProjectDetail: (id) => apiI.get(`Project/getProjectDetail?id=${id}`)
+    getProjectDetail: (id) => apiI.get(`Project/getProjectDetail?id=${id}`),
+    assignUser: (data) => apiI.post('Project/assignUserProject', data),
+    deleteUser: (id) => apiI.delete(`/Project/deleteProject?projectId=${id}`),
 }

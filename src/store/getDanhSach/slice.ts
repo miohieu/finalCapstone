@@ -27,7 +27,7 @@ const getDanhSachSlice = createSlice({
         .addCase(getDanhSachThunk.rejected, (state)=>{
             state.isFetchingUserList = false
         })
-    },
+            },
 
 })
 export const {actions : getDanhSachActions , reducer : getDanhSachReducer} = getDanhSachSlice

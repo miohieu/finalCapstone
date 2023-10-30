@@ -7,6 +7,7 @@ export const url = "https://jiranew.cybersoft.edu.vn/api"
 export const api = (config?: CreateAxiosDefaults) => {
     const a = axios.create(config)
     a.interceptors.request.use((config) => {
+        
         return {
             ...config,
             headers: { 

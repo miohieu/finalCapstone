@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { createProjectThunk, getProjectDetail } from './thunk'
+import { assignUser, createProjectThunk, getProjectDetail } from './thunk'
+import { toast } from 'react-toastify'
 
 enum STATUSNAME {
     "BACKLOG",
@@ -27,11 +28,11 @@ interface ProjectRes {
 }
 
 interface initalState {
-    adminToken:string
+    adminToken: string
     projectDetail: ProjectRes | undefined
 }
 
-const initialState :initalState= {
+const initialState: initalState = {
     adminToken: " ",
     projectDetail: undefined
 
@@ -54,6 +55,10 @@ const projectSlice = createSlice({
             })
             .addCase(getProjectDetail.fulfilled, (state, { payload }) => {
                 state.projectDetail = payload
+            })
+            .addCase(assignUser.fulfilled, (_) => {
+                toast.success("Added to project")
+
             })
     },
 })
