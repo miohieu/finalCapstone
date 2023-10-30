@@ -10,9 +10,7 @@ export const AuthLayout = () => {
     useEffect(() => {
         if (token) {
             navigate("/")
-        } else {
-            navigate("/login")
-        } 
+        }  
         return () => {}
     }, [token, navigate])
     return (

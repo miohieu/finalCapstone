@@ -1,7 +1,19 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { Outlet } from "react-router-dom"
+import { useEffect } from "react"
+import { getAccessToken } from "utils"
+
 
 export const MainLayout = () => {
+const navigate = useNavigate()
+const token = getAccessToken()
+
+    useEffect(() => {
+        if (token) {
+            navigate("/login")
+        }  
+        return () => {}
+    }, [token, navigate])
     return (
         <div className="w-full flex">
             <div className="w-[300px] flex-none">
