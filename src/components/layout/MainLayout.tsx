@@ -9,11 +9,12 @@ const navigate = useNavigate()
 const token = getAccessToken()
 
     useEffect(() => {
-        if (token) {
+        if (!token) {
             navigate("/login")
         }  
         return () => {}
     }, [token, navigate])
+
     return (
         <div className="w-full flex">
             <div className="w-[300px] flex-none">

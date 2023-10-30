@@ -1,6 +1,6 @@
 import { RouteObject } from "react-router-dom";
 import { PATH } from "constant";
-import { Projectmn, Login, CreateProject, Register, ProjectDetail,Dashboard } from "pages";
+import { Projectmn, Login, CreateProject, Register, ProjectDetail,Dashboard , NotFound} from "pages";
 import { AuthLayout, MainLayout } from "components";
 
 export const router: RouteObject[] = [
@@ -39,7 +39,12 @@ export const router: RouteObject[] = [
             }
 
         ]
+    },
+    {
+        path: "*",
+        element: <NotFound/> 
     }
+
 
 
 ]
