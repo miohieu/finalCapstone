@@ -24,7 +24,7 @@ export const router: RouteObject[] = [
             {
                 index: true,
                 path: PATH.projectmn,
-                element: <Projectmn />
+                element: <Projectmn />,
             },
             {
                 path: PATH.createProject,

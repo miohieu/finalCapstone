@@ -1,21 +1,49 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { useAppDispatch } from "store"
+import { useAppDispatch, useAppSelector } from "store"
 import { getProjectDetail } from "store/Project/thunk"
+import { Button } from "@chakra-ui/react"
+import { Modal } from "components/ui/Modal"
 
 export const ProjectDetail = () => {
     const param = useParams()
+    const project = useAppSelector(state => state.project.projectDetail)
+    const [isModalOpen, setModalOpen] = useState(false)
 
     const dispatch = useAppDispatch()
+    console.log(project)
 
     useEffect(
         () => {
             dispatch(getProjectDetail(param.id))
-        }, [dispatch,param.id])
+        }, [dispatch, param.id])
+
 
 
     return (
-        <div> Project Details #{param.id} </div>
+        < div >
+            <div> Project Details #{param.id}
+                <h1>
+                    Ten du an: {project?.alias}
+                </h1>
+            </div>
+            <div className="container-task flex">
+                {project?.lstTask?.map(e => (
+                    <div className="container task-container">
+                        <h1 className="title">{e.statusName}</h1>
+                        <div>{e.lstTaskDeTail?.map(e => <p>{e} </p>)}</div>
+                    </div>
+                ))
+                }
+            </div>
+
+
+            <Button data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+            >add task</Button>
+
+             <Modal name={project?.alias}/>
+        </ div >
     )
 }
 
