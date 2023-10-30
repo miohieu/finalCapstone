@@ -4,11 +4,12 @@ import { LoginSchema, LoginType } from "schema/LoginSchema"
 import { useForm, SubmitHandler } from "react-hook-form"
 import { Button } from "components"
 import { loginThunk } from "store/Authentication"
-import { useAppDispatch } from "store"
+import { useAppDispatch, useAppSelector } from "store"
 import { toast } from "react-toastify"
 import { handleError } from "utils/handleError"
 import { useNavigate } from "react-router-dom"
 import { Link } from "@chakra-ui/react"
+import { useEffect } from "react"
 
 export const LoginTemplate = () => {
     const {
@@ -21,7 +22,7 @@ export const LoginTemplate = () => {
         resolver: zodResolver(LoginSchema)
     })
     const dispatch = useAppDispatch()
-const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const onSubmit: SubmitHandler<LoginType> = (data) => {
         dispatch(loginThunk(data)).unwrap()
@@ -62,12 +63,12 @@ const navigate = useNavigate()
                     <Button handleClick={() => { trigger() }}
                         text="Dang nhap" />
                 </form>
-                <p>Chua co tai khoan? 
-                <Link
-                className="text-underline"
-                href="/register"> Dang ky ngay
+                <p>Chua co tai khoan?
+                    <Link
+                        className="text-underline"
+                        href="/register"> Dang ky ngay
 
-                </Link></p>
+                    </Link></p>
             </div>
         </Wrapper>
     )

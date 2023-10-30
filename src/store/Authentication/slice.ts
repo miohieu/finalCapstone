@@ -1,39 +1,50 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getAccessToken } from 'utils'
+import { getAccessToken, getItem } from 'utils'
 import { loginThunk, registerThunk } from '.'
+import { PayloadAction } from '@reduxjs/toolkit'
 import { User } from 'types'
+import { toast } from "react-toastify"
 
 type userAuth = {
     accessToken?: string
-    user: User,
-    isLogin: boolean
+    user?: User,
 }
 
 const initialState: userAuth = {
     accessToken: getAccessToken(),
-    user: undefined,
-    isLogin: false
+    user: getItem("CURRUSER")
+
 }
 
 const userAuthSlice = createSlice({
     name: 'usersAuth',
     initialState,
-    reducers: { },
+    reducers: {
+        logOut: (state, { payload }: PayloadAction<string>) => {
+            console.log('action: ', payload)
+            state.accessToken = undefined
+            state.user = undefined
+            localStorage.removeItem('ACCESSTOKEN')
+            localStorage.removeItem('CURRUSER')
+        }
+    },
     extraReducers(builder) {
         builder
             .addCase(loginThunk.fulfilled, (state, { payload }) => {
-                console.log('payload: ', payload)
-                //
-                // lưu accessToken xuống localstorage
+
                 localStorage.setItem('ACCESSTOKEN', payload.accessToken)
-                const token = state.accessToken  
-                if (token) { 
-                    state.isLogin = true 
+                const token = state.accessToken = payload.accessToken
+
+                if (token) {
                     state.user = payload
                 }
-                
+
             })
-            .addCase(registerThunk.fulfilled, (_, {payload}) => {
+            .addCase(loginThunk.pending, (_, { payload }) => {
+                toast.warning("Vui long doi")
+
+            })
+            .addCase(registerThunk.fulfilled, (_, { payload }) => {
                 console.log(payload)
             })
 

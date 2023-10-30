@@ -1,18 +1,27 @@
 import { useEffect } from "react"
-import { RootState, useAppDispatch } from "store"
-import { getDanhSachThunk } from "store/getDanhSach"
+import { RootState, useAppDispatch, useAppSelector } from "store"
 import { useSelector } from "react-redux"
+import { getDanhSachThunk } from "store/getDanhSach"
+import { getAccessToken } from "utils"
+
 export const ProjectmnTemplate = () => {
     const dispatch = useAppDispatch()
     const { userList, isFetchingUserList } = useSelector((state: RootState) => state.getdanhsach)
 
-const user = useSelector(state => state.user)
+const accessToken = getAccessToken()
+const {user} = useAppSelector(( state ) => state.authentication)
 
-console.log(user)
+if(accessToken) {
+        localStorage.setItem("CURRUSER", JSON.stringify(user))
+}
+
+console.log(user, "user")
 
     useEffect(() => {
         dispatch(getDanhSachThunk())
-    }, [dispatch])
+        return ()=>{}
+    }, [dispatch]
+    )
 
 
     return (
@@ -56,9 +65,7 @@ console.log(user)
                         </tr>
 
 
-
                     ))}
-
 
                 </tbody>
 

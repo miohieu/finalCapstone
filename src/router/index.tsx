@@ -2,6 +2,7 @@ import { RouteObject } from "react-router-dom";
 import { PATH } from "constant";
 import { Projectmn, Login, CreateProject, Register, ProjectDetail } from "pages";
 import { AuthLayout, MainLayout } from "components";
+import { Dashboard } from "pages/Dashboard";
 
 export const router: RouteObject[] = [
     {
@@ -33,6 +34,11 @@ export const router: RouteObject[] = [
                 path: PATH.projectDetail,
                 element: <ProjectDetail/>
             },
+            {
+                path: PATH.dashboard,
+                element:<Dashboard/>
+            }
+
         ]
     }
 
