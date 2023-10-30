@@ -4,9 +4,10 @@ import { Wrapper } from "components"
 import { userAuthActions } from "store/Authentication"
 import { useNavigate } from "react-router-dom"
 export const Dashboard = () => {
-    const { email,
+    const { 
+        email,
         avatar,
-    } = useAppSelector(state => state.authentication.user)
+    } = useAppSelector(state => state.authentication?.user)
 
 const dispatch = useAppDispatch()
 const navigate = useNavigate()
