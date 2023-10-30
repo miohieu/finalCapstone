@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect  } from "react"
 import { useParams } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from "store"
 import { getProjectDetail } from "store/Project/thunk"
@@ -8,7 +8,6 @@ import { Modal } from "components/ui/Modal"
 export const ProjectDetail = () => {
     const param = useParams()
     const project = useAppSelector(state => state.project.projectDetail)
-    const [isModalOpen, setModalOpen] = useState(false)
 
     const dispatch = useAppDispatch()
     console.log(project)

@@ -1,9 +1,11 @@
 export type DanhSach= {
-    members : string,
+    members : [{name: string}],
     userId : number,
     name : string,
     avatar : string,
-    creator: string,
+    creator: {
+        name: string
+    },
     id: number,
     projectName:string,
     description : string,

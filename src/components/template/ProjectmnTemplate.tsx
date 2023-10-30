@@ -20,7 +20,7 @@ import { toast } from "react-toastify"
 
 export const ProjectmnTemplate = () => {
     const dispatch = useAppDispatch()
-    const { userList, isFetchingUserList } = useSelector((state: RootState) => state.getdanhsach)
+    const { userList} = useSelector((state: RootState) => state.getdanhsach)
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [projectName, setProjectName] = useState("")
     const accessToken = getAccessToken()
@@ -46,7 +46,7 @@ export const ProjectmnTemplate = () => {
             .catch(err => handleError(err))
     }
 
-const [projectID, setID] = useState()
+const [projectID, setID] = useState(1)
 
     return (
         <div>

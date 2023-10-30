@@ -50,9 +50,6 @@ const projectSlice = createSlice({
                 state.adminToken = "hello"
 
             })
-            .addCase(createProjectThunk.rejected, (_, { payload }) => {
-                console.log(payload.response.data.message)
-            })
             .addCase(getProjectDetail.fulfilled, (state, { payload }) => {
                 state.projectDetail = payload
             })
