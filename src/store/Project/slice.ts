@@ -1,9 +1,40 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { createProjectThunk } from './thunk'
+import { createProjectThunk, getProjectDetail } from './thunk'
 
+enum STATUSNAME {
+    "BACKLOG",
+    "SELECTED FOR DEVELOPMENT",
+    "IN PROGRESS",
+    "DONE"
 
-const initialState = {
-    adminToken: " "
+}
+type Task = {
+    alias: "tồn đọng"
+    lstTaskDeTail: []
+    statusId: string
+    statusName: STATUSNAME
+}
+interface ProjectRes {
+    alias: string
+    creator: { id: number, name: string }
+    description: string
+    id: number
+    lstTask: [Task]
+    members: []
+    projectCategory: { id: number, name: string }
+    projectName: string
+
+}
+
+interface initalState {
+    adminToken:string
+    projectDetail: ProjectRes | undefined
+}
+
+const initialState :initalState= {
+    adminToken: " ",
+    projectDetail: undefined
+
 }
 
 const projectSlice = createSlice({
@@ -20,6 +51,9 @@ const projectSlice = createSlice({
             })
             .addCase(createProjectThunk.rejected, (_, { payload }) => {
                 console.log(payload.response.data.message)
+            })
+            .addCase(getProjectDetail.fulfilled, (state, { payload }) => {
+                state.projectDetail = payload
             })
     },
 })

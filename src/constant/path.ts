@@ -4,4 +4,5 @@ export const PATH = {
     projectmn:'/',
     createProject: 'projects/create-project',
     projectDetail: '/projects/:id/',
+    dashboard: '/dashboard',
 }

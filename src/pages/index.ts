@@ -2,4 +2,5 @@ export * from './Login'
 export * from './Register'
 export * from './Projectmn'
 export * from './CreateProject'
-export * from './projectDetail'
+export * from './ProjectDetail'
+export * from "./Dashboard"

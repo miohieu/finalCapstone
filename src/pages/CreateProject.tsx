@@ -10,6 +10,7 @@ import { projectService } from "services"
 import { useEffect, useState } from "react"
 import { toast } from "react-toastify"
 import { handleError } from "utils/handleError"
+import { useNavigate } from "react-router-dom"
 
 export const CreateProject = () => {
     const {
@@ -43,14 +44,19 @@ export const CreateProject = () => {
 
     useEffect(() => { projectCategory() }, [])
 
+    const navigate = useNavigate()
 
 
     const onSubmit: SubmitHandler<ProjectType> = (data) => {
-        console.log(data, "data")
         dispatch(createProjectThunk(data))
             .unwrap()
-            .then(() => {
+            .then((e) => {
                 toast.success("Tao project thanh cong")
+
+
+                const id = e.content.id
+
+                navigate(`/projects/${id}`)
 
             })
             .catch((err: Error) => {
@@ -100,7 +106,6 @@ export const CreateProject = () => {
                     />}
                 </div>
                 <Button handleClick={() => {
-                    console.log("trigger");
                     trigger()
                 }} text="Create" />
 

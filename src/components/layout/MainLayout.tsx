@@ -10,13 +10,13 @@ export const MainLayout = () => {
                         <img src="/public/logo.png" alt="logo" className="w-full h-[70px] object-cover" />
                     </div>
                     <div className="flex flex-col mt-5">
-                        <NavLink to={'/'} className='py-2 px-[35px] items-center'>
+                        <NavLink to={'/dashboard'} className='py-2 px-[35px] items-center'>
                             <i className="fa-solid fa-credit-card me-4 text-[20px] font-bold"></i>
                             <span>Cyber Board</span>
                         </NavLink>
-                        <NavLink to={'/projectmn'} className='py-2 px-[35px] items-center'>
-                            <i className="fa-solid fa-gear me-4 text-[20px] font-bold" ></i>
-                            <span className="font-bold">Project management</span>
+                        <NavLink to={'/'} className='py-2 px-[35px] items-center'>
+                            <i className="fa-solid fa-gear me-4 text-[20px]" ></i>
+                            <span className="">Project management</span>
                         </NavLink>
                         <NavLink to={'/projects/create-project'} className='py-2 px-[35px] items-center mb-4'>
                             <i className="fa-solid fa-gear me-4 text-[20px] font-bold" ></i>

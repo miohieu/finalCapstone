@@ -10,3 +10,9 @@
 .auth-layout__content {
     @apply  h-full lg:container	
 }
+
+
+ .active {
+     font-weight: 800;
+     color: #7ABDE6
+}
