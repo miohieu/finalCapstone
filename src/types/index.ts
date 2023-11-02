@@ -24,3 +24,15 @@ export type ProjectDeatailType = {
     projectName: string
 }
 
+export type TaskInfo = {
+    listUserAsign: [],
+    taskName: string,
+    description: string,
+    statusId: string,
+    originalEstimate: number,
+    timeTrackingSpent: number,
+    timeTrackingRemaining: number,
+    projectId: number,
+    typeId: number,
+    priorityId: number
+}
