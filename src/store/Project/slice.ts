@@ -45,8 +45,6 @@ const projectSlice = createSlice({
         builder
             .addCase(createProjectThunk.fulfilled, (state, { payload }) => {
                 console.log('payload: ', payload)
-                state.adminToken = "hello"
-
             })
             .addCase(getProjectDetail.fulfilled, (state, { payload }) => {
                 state.projectDetail = payload

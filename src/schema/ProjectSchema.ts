@@ -9,3 +9,15 @@ export const ProjectSchema = z.object({
 
 export type ProjectType = z.infer<typeof ProjectSchema>
 
+export type TaskInfo = {
+    listUserAsign: [],
+    taskName: string,
+    description: string,
+    statusId: string,
+    originalEstimate: number,
+    timeTrackingSpent: number,
+    timeTrackingRemaining: number,
+    projectId: number,
+    typeId: number,
+    priorityId: number
+}

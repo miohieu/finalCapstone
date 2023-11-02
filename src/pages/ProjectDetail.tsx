@@ -7,10 +7,9 @@ import { Modal } from "components/ui/Modal"
 
 export const ProjectDetail = () => {
     const param = useParams()
-    const project = useAppSelector(state => state.project.projectDetail)
+    
 
     const dispatch = useAppDispatch()
-    console.log(project)
 
     useEffect(
         () => {
@@ -18,6 +17,7 @@ export const ProjectDetail = () => {
         }, [dispatch, param.id])
 
 
+    const project = useAppSelector(state => state.project.projectDetail)
 
     return (
         < div >

@@ -32,8 +32,8 @@ export const Dashboard = () => {
                     <Heading as="h2">Hello, {email}</Heading>
                     <div>
                         <Heading as="h3">My projects</Heading>
-                        {list.map(e => <div key={e.id}>
-                            <Link key={id} to={`/projects/${e.id}`}> {e.projectName}</Link> </div>)
+                        {list.map(e => <div key={id}>
+                            <Link key={id} to={`/projects/${id}`}> {e.projectName}</Link> </div>)
                         }
                     </div>
 

@@ -13,12 +13,12 @@ import {
     Button,
     useDisclosure
 } from '@chakra-ui/react'
-import { AddMember } from "components"
 
 import { projectService } from "services"
 import { handleError } from "utils/handleError"
 import { toast } from "react-toastify"
 import { assignUser } from "store/Project/thunk"
+import { findMe } from "utils/findMe"
 
 export const ProjectmnTemplate = () => {
     const dispatch = useAppDispatch()
@@ -27,6 +27,8 @@ export const ProjectmnTemplate = () => {
     const [projectName, setProjectName] = useState("")
     const accessToken = getAccessToken()
     const { user } = useAppSelector((state) => state.authentication)
+
+
 
     console.log(userList)
     if (accessToken) {
@@ -47,11 +49,8 @@ export const ProjectmnTemplate = () => {
             )
             .catch(err => handleError(err))
     }
+const [projectID, setID] = useState(1)
 
-    const handleAddUser = (userID, projectID) => {
-        dispatch(assignUser({ userID, projectID }))
-    }
-    const [projectID, setID] = useState(1)
 
     return (
         <div>
@@ -149,7 +148,7 @@ export const ProjectmnTemplate = () => {
                     </ModalFooter>
                 </ModalContent>
             </Modal>
-        
+
 
         </div>
     )
