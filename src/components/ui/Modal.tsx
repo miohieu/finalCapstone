@@ -1,4 +1,6 @@
-export const Modal = ({name}) => {
+import { Avatar } from "./Avatar"
+
+export const Modal = ({ name, membersProject }) => {
     return (
         <div className="modal fade modal-xl" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
@@ -47,8 +49,10 @@ export const Modal = ({name}) => {
 
                                     </div>
                                     <div>
-                                        <label htmlFor="" className="mt-2">Members</label><br />
-                                        <input type="number" className=" w-full border border-secondary-subtle mt-2" style={{ padding: 5, border: "1px solid black", borderRadius: 5 }} />
+                                        <h2>Members</h2>
+                                        {membersProject?.length !== 0 ? membersProject?.map(e => {
+                                            <p>{e}</p>
+                                        }) : <p> add member to see </p>}
 
                                     </div>
                                 </div>

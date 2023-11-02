@@ -6,7 +6,6 @@
     @apply md:flex flex-none
 }
 
-
 .auth-layout__content {
     @apply  h-full lg:container	
 }
@@ -20,7 +19,7 @@
     border: solid 5px cyan
 
 }
-.tooltip {
+.add-member__modal {
     width: 200px;
     height: 250px;
     position: relative;

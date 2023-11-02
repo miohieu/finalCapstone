@@ -41,7 +41,7 @@ export const ProjectDetail = () => {
                 data-bs-target="#exampleModal"
             >add task</Button>
 
-             <Modal name={project?.alias}/>
+             <Modal name={project?.alias} membersProject={project?.members}/>
         </ div >
     )
 }

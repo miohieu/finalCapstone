@@ -14,6 +14,6 @@ export const projectService = {
             .post<ApiResponse<ProjectDeatailType>>('Project/createProjectAuthorize', data),
     getProjectCategory: () => apiI.get('/ProjectCategory'),
     getProjectDetail: (id) => apiI.get(`Project/getProjectDetail?id=${id}`),
-    assignUser: (data) => apiI.post('Project/assignUserProject', data),
+    assignUserProject: (data) => apiI.post('Project/assignUserProject', data),
     deleteUser: (id) => apiI.delete(`/Project/deleteProject?projectId=${id}`),
 }

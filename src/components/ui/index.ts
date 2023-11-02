@@ -11,3 +11,4 @@ margin: auto;
 ` 
 export * from './Input'
 export * from './Button'
+export * from './AddMember'
